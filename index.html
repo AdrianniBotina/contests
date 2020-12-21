@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CONTESTS</title>
+	<style>
+		*{border:0;padding:0;margin:0;}
+		body{background: #0c1a27; font-family:sans-serif,Arial Black,Comic Sans MS,cursive,verdana; text-align: center;}
+		h1{color: white;}
+		.contC{background:#0c1a27;}
+		.meWinnerD{display:inline-block;vertical-align:top;}
+		/*.blqsC{background:red;display:inline-block;vertical-align:top;}*/
+		a{ color: skyblue; padding: 14px 25px; text-align: center; text-decoration: none; display: inline-block;}
+	</style>
+</head>
+<body>
+	<div class="contC">
+		<br>
+		<h1>I LOST THESE CONTESTS</h1>
+		<br/>
+		<div id="blqsD" class="blqsC"></div>
+	</div>
+	<script>
+		bloques = document.getElementById('blqsD');
+		anchoPant = window.innerWidth/2;
+
+		meWinner = ['My lost work 😕','Winner of the contest'];
+
+		imagenes = [
+			['img/carMe.jpg','img/carOther.jpg','https://www.freelancer.com/contest/950427.html'],
+			['img/sceneMe098.jpg','img/sceneOther098.jpg','https://www.freelancer.com/contest/Lowpoly-d-factory-tiles-754007.html'],
+			['img/cartoonMe.jpg','img/cartoonOther.jpg','https://www.freelancer.com/contest/contest.php?project_id=900587'],
+			['img/CharacterMe321.jpg','img/CharacterOther321.jpg','https://www.freelancer.com/contest/looking-for-d-characters-for-small-project-391742.html'],
+			['img/tattooMe.jpg','img/tattooOther.jpg','https://www.freelancer.com/contest/Tattoo-Ideas-1286827?w=f&ngsw-bypass='],
+			['img/girlMe.jpg','img/girlOther.jpg','https://www.freelancer.com/contest/D-model-of-a-Cartoon-figure-543257.html'],
+		];
+		///////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////
+		for (i = 0; i < imagenes.length; i++) {
+			for (k = 0; k < meWinner.length; k++){
+				if(window.innerWidth < window.innerHeight){
+					insertTitle1 = document.createElement('h6');
+				}else{
+					insertTitle1 = document.createElement('h2');
+				}
+					inserTxt = document.createTextNode(meWinner[k]);
+				insertTitle1.className = 'meWinnerD';
+				insertTitle1.style.width = (anchoPant-80)+'px';
+				insertTitle1.style.color = 'yellow';
+
+				insertTitle1.appendChild(inserTxt);
+				bloques.appendChild(insertTitle1);
+			}
+			//CREAR BLOQUE
+			insertblq = document.createElement('div');
+				//insertblq.style.background = 'red';
+				//insertblq.style.border = 'thin solid black';
+				insertblq.style.width = window.innerWidth+'px';
+				//IMAGENES
+				for (j = 0; j < (imagenes[i].length-1); j++){
+					//IMAGEN
+					insertImg = document.createElement('img');
+						insertImg.src = imagenes[i][j];
+						insertImg.style.width = (anchoPant-50)+'px';
+						switch(j){
+							case 0:
+								insertImg.style.paddingLeft = 0;
+								insertImg.style.paddingRight = 1+'em';
+							break;
+							case 1:
+								insertImg.style.paddingLeft = 1+'em';
+								insertImg.style.paddingRight = '0';
+							break;
+						}
+					//INSERT
+					insertblq.appendChild(insertImg);
+					//SEPARACION
+					separacion = document.createElement('br');
+					bloques.appendChild(separacion);
+				}
+				//TEXTO LOSER WINNER
+				insertLink = document.createElement('a');
+				if(window.innerWidth < window.innerHeight){
+					insertLink.style.fontSize = '8px';
+				}else{
+					insertLink.style.fontSize = '16px';
+				}
+				//insertLink.href = imagenes[i][2];
+					inserTxt = document.createTextNode('Link: '+imagenes[i][2]);
+				insertLink.appendChild(inserTxt);
+				bloques.appendChild(insertLink);
+			//INSERT
+			bloques.appendChild(insertblq);
+		}
+
+	</script>
+</body>
+</html>
